@@ -9,13 +9,16 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
   <style>
   body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
-    
+
   }
-  #about h2 , #last_articles h2{
+  #about h2 , #last_articles h2, #latest_countries h2{
       font-size: 24px;
       text-transform: uppercase;
       color: #303030;
@@ -28,13 +31,13 @@
       line-height: 1.375em;
       color: #303030;
       font-weight: 400;
-      
-  }  
+
+  }
   .bg {
   background: url('3.jpg') no-repeat center center;
   position: absolute;
   width: 100%;
-  height: 350px; 
+  height: 350px;
   top:50px;
   left:0;
   z-index: -1;
@@ -45,7 +48,7 @@
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
-      
+
        background: transparent;
   }
   .container-fluid {
@@ -92,7 +95,7 @@
   .item span {
       font-style: normal;
   }
-  
+
   .panel-footer .btn:hover {
       border: 1px solid #f4511e;
       background-color: #fff !important;
@@ -144,9 +147,13 @@
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
-      color: #f4511e;
+      color:  #777;
+
   }
-  .slideanim {visibility:hidden;}
+  footer {
+      background-color: #f8f8f8;
+  }
+
   .slide {
       animation-name: slide;
       -webkit-animation-name: slide;
@@ -158,7 +165,7 @@
     0% {
       opacity: 0;
       transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       transform: translateY(0%);
@@ -168,7 +175,7 @@
     0% {
       opacity: 0;
       -webkit-transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       -webkit-transform: translateY(0%);
@@ -204,7 +211,7 @@
   height: 2px;
   background-color: #c4bcba;
   transition: 0.4s;
-  
+
  }
 .effect-1:focus ~ .focus-border{
   width: 100%;
@@ -244,33 +251,40 @@ opacity: 0.5;
   color : #fff;
   opacity: 1;
 }
+#latest_countries p{
+  text-align: left;
+  margin-left: 15%;
+}
+
+
+
+
 
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#myPage">The Hitchhiker's Guide to the Earth</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Countries</a></li>
-        <li><a href="#portfolio">Sing in</a></li>
+        <li><a href="#countries">Countries</a></li>
+        <li><a href="#!singin.html"  data-target="#singin">Sing in</a></li>
       </ul>
     </div>
   </div>
 </nav>
  <div class="bg"></div>
 <div class="jumbotron text-center">
-  <h2>GET INSPIRED TO TRAVEL</h2> 
+  <h2>GET INSPIRED TO TRAVEL</h2>
   <div class="row">
   <div class="col-sm-4"></div>
     <div class="col-sm-4">
@@ -294,47 +308,95 @@ opacity: 0.5;
   <div class="col-sm-2"></div>
     <div class="col-sm-8">
       <h2>About travel guide</h2><br>
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <h4>Using this travel guide you can travel all arround the world. What to visit beautiful places just search a bit.
+      Don't rush just stop and have a snack. Read about all countries in the world, explore interesting places.
+      You have found very unvelivablr place and what to everybody know it write an article about it! Just keep calm and inspire to traveling. </h4><br>
+      <h4>To wtite you own article click the button 'add' and choose the country you would likw to describe. Dont't forget about pictures.
+      Just take pictures of the place you are writing and add it to the article.</h4>
     </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
 
-
-<!-- Container (Portfolio Section) -->
 <div id="last_articles" class="container-fluid text-center bg-grey">
-  <h2>Last articles:</h2><br>
+  <h2>Explore new places</h2><br>
   <div class="row text-center slideanim">
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="1.jpg" alt="Paris" width="400" height="300">
+        <img src="1.jpg" alt="Paris">
         <p><strong>Paris</strong></p>
-        <p>Yes, we built Paris</p>
+        <p>Yes, we are in Paris</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="1.jpg" alt="New York" width="400" height="300">
+        <img src="1.jpg" alt="New York" >
         <p><strong>New York</strong></p>
-        <p>We built New York</p>
+        <p>Yes, we are in  New York</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="1.jpg" alt="San Francisco" width="400" height="300">
+        <img src="1.jpg" alt="San Francisco">
         <p><strong>San Francisco</strong></p>
-        <p>Yes, San Fran is ours</p>
+        <p>Yes, we are in  San Frans</p>
       </div>
     </div>
   </div><br>
-  
+</div>
+
+<div id="latest_countries" class="container-fluid text-center">
+  <h2>Just have a snack</h2>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-2">
+            <img src="1.jpg" alt="Paris" width="100" height="70">
+        </div>
+        <div class="col-sm-6">
+          <p>The USA Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-2">
+          <img src="1.jpg" alt="Paris" width="100" height="70">
+        </div>
+        <div class="col-sm-6">
+          <p>The USA Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-2">
+          <img src="1.jpg" alt="Paris" width="100" height="70">
+        </div>
+        <div class="col-sm-6">
+          <p>The USA Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+</div>
 
 
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
+
   </a>
-  
+<p>This travel guide was developed to get an opportunities for all people to inspire with traveling.</p>
 </footer>
 
 <script>
@@ -354,13 +416,13 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
     } // End if
   });
-  
+
   $(window).scroll(function() {
     $(".slideanim").each(function(){
       var pos = $(this).offset().top;
@@ -373,6 +435,7 @@ $(document).ready(function(){
   });
 })
 </script>
+<script src="app.js"></script>
 
 </body>
 </html>
